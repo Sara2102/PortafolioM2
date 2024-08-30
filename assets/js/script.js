@@ -63,21 +63,31 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    const carousel = document.getElementById('carouselExample');
-    const items = carousel.querySelectorAll('.carousel-item');
-    
-    carousel.addEventListener('slide.bs.carousel', function (e) {
-        // Añadir animación a la imagen actual antes de que empiece la transición
-        const currentElement = carousel.querySelector('.carousel-item.active');
-        currentElement.style.transition = 'transform 1s ease-in-out, opacity 1s ease-in-out';
-        currentElement.style.transform = 'scale(0.95)';
-        currentElement.style.opacity = '0';
+let slideIndex = 1;
+showSlides(slideIndex);
 
-        // Añadir animación al siguiente elemento que aparecerá
-        const nextElement = e.relatedTarget;
-        nextElement.style.transition = 'transform 1s ease-in-out, opacity 1s ease-in-out';
-        nextElement.style.transform = 'scale(1)';
-        nextElement.style.opacity = '1';
-    });
-});
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
