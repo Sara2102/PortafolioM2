@@ -1,0 +1,76 @@
+/* Archivo styles.css */
+.section-header {
+    background-color: #75124c;
+    color: #e5eaeb;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+h1, h2, h5 {
+    font-family: "Nerko One", cursive;
+}
+
+footer {
+    height: 100px;
+}
+
+#successMessage {
+    color: green;
+    display: none; /* Oculto por defecto */
+}
+
+.bg-success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+
+
+
+/* cards */
+
+
+.card {
+    border-radius: 15px; 
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+.card-img-top {
+    object-fit: cover; 
+    height: 550px; 
+    width: 100%;
+}
+
+/* Tarjetas en pantallas grandes */
+@media (min-width: 992px) {
+    .card {
+        min-height: 200px; 
+    }
+}
+
+/* Tarjetas en pantallas pequeñas */
+@media (max-width: 991px) {
+    .card {
+        min-height: 200px; 
+    }
+}
+
+/* Espaciado entre las tarjetas */
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.card {
+    margin-bottom: 4.1  rem;
+}
+
+
+
+/*caminando*/
