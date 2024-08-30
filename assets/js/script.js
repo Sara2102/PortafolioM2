@@ -61,3 +61,23 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('mouseout', restoreButtonColor);
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.getElementById('carouselExample');
+    const items = carousel.querySelectorAll('.carousel-item');
+    
+    carousel.addEventListener('slide.bs.carousel', function (e) {
+        // Añadir animación a la imagen actual antes de que empiece la transición
+        const currentElement = carousel.querySelector('.carousel-item.active');
+        currentElement.style.transition = 'transform 1s ease-in-out, opacity 1s ease-in-out';
+        currentElement.style.transform = 'scale(0.95)';
+        currentElement.style.opacity = '0';
+
+        // Añadir animación al siguiente elemento que aparecerá
+        const nextElement = e.relatedTarget;
+        nextElement.style.transition = 'transform 1s ease-in-out, opacity 1s ease-in-out';
+        nextElement.style.transform = 'scale(1)';
+        nextElement.style.opacity = '1';
+    });
+});

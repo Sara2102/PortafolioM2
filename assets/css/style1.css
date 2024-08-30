@@ -139,3 +139,12 @@ footer {
     }
 }
 
+/*carrusel*/
+.carousel-item {
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.carousel-item.active {
+    transform: scale(1);
+    opacity: 1;
+}
