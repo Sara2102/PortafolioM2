@@ -33,3 +33,31 @@ function validateEmail(email) {
     var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
 }
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Función para cambiar el color de fondo del botón al pasar el mouse
+    function changeButtonColor(event) {
+        event.target.style.backgroundColor = '#4f0000'; // Color al pasar el mouse
+    }
+
+    // Función para restaurar el color original del botón al quitar el mouse
+    function restoreButtonColor(event) {
+        event.target.style.backgroundColor = '#dc3545'; // Color original del botón
+    }
+
+    // Selecciona todos los botones con la clase .btn-danger
+    const buttons = document.querySelectorAll('.btn-danger');
+
+    // Añade los eventos mouseover y mouseout a cada botón
+    buttons.forEach(button => {
+        button.addEventListener('mouseover', changeButtonColor);
+        button.addEventListener('mouseout', restoreButtonColor);
+    });
+});
